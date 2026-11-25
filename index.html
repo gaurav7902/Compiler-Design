@@ -1,94 +1,951 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#f2f6f2" />
-        <meta
-            name="description"
-            content="IIT professor's notes for Compiler Design (NCSC302), including lecture notes, lab programs, tutorials, previous-year questions, and course resources from IIT (ISM) Dhanbad." />
-        <meta
-            name="keywords"
-            content="IIT professor notes, IIT notes, Compiler Design, NCSC302, IIT ISM Dhanbad, compiler lecture notes, lab programs, tutorials, previous-year questions" />
-        <meta name="author" content="IIT (ISM) Dhanbad faculty" />
-        <meta name="robots" content="index, follow, max-image-preview:large" />
-        <meta property="og:type" content="website" />
-        <meta property="og:locale" content="en_IN" />
-        <meta
-            property="og:title"
-            content="Compiler Design | IIT Professor's Notes | NCSC302" />
-        <meta
-            property="og:description"
-            content="Lecture notes, labs, tutorials, and previous-year questions for Compiler Design at IIT (ISM) Dhanbad." />
-        <meta name="twitter:card" content="summary" />
-        <meta
-            name="twitter:title"
-            content="Compiler Design | IIT Professor's Notes | NCSC302" />
-        <meta
-            name="twitter:description"
-            content="IIT professor's notes and course resources for Compiler Design (NCSC302)." />
-        <title>Compiler Design | IIT Professor's Notes | NCSC302</title>
-        <style>
-            :root {
-                color-scheme: light;
-                font-family: system-ui, sans-serif;
-                color: #172226;
-                background: #f2f6f2;
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f2f6f2" />
+    <meta name="description" content="IIT professor's notes for Compiler Design (NCSC302), with searchable lecture notes, labs, tutorials, previous-year questions, and course resources from IIT (ISM) Dhanbad." />
+    <meta name="keywords" content="IIT professor notes, Compiler Design notes, NCSC302, IIT (ISM) Dhanbad, lexical analysis, syntax analysis, semantic analysis, compiler construction" />
+    <meta name="author" content="Prof. Anjan Chowdhury, IIT (ISM) Dhanbad" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:site_name" content="Compiler Design · IIT (ISM) Dhanbad" />
+    <meta property="og:title" content="Compiler Design | IIT Professor's Notes | NCSC302" />
+    <meta property="og:description" content="Search lecture notes, lab programs, tutorials, and previous-year questions for Compiler Design at IIT (ISM) Dhanbad." />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Compiler Design | IIT Professor's Notes | NCSC302" />
+    <meta name="twitter:description" content="IIT professor's notes and course resources for Compiler Design (NCSC302)." />
+    <title>Compiler Design | IIT Professor's Notes | NCSC302</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="assets/site.css" />
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Course",
+            "name": "Compiler Design (NCSC302)",
+            "courseCode": "NCSC302",
+            "description": "Course notes, practicals, tutorials, and examination resources covering lexical, syntax, and semantic analysis, intermediate code, and optimization.",
+            "inLanguage": "en",
+            "instructor": {
+                "@type": "Person",
+                "name": "Anjan Chowdhury"
+            },
+            "provider": {
+                "@type": "CollegeOrUniversity",
+                "name": "Indian Institute of Technology (ISM) Dhanbad",
+                "url": "https://www.iitism.ac.in/"
             }
-
-            body {
-                max-width: 860px;
-                margin: 0 auto;
-                padding: 3rem 1.25rem;
-                line-height: 1.6;
-            }
-
-            header,
-            main {
-                background: #fff;
-                border: 1px solid #d6dfdc;
-                border-radius: 12px;
-                padding: clamp(1.25rem, 4vw, 2.5rem);
-            }
-
-            main {
-                margin-top: 1rem;
-            }
-
-            h1,
-            h2 {
-                line-height: 1.2;
-            }
-
-            a {
-                color: #08766f;
-            }
-
-            li {
-                margin: 0.5rem 0;
-            }
-        </style>
-    </head>
-    <body>
-        <header>
-            <p>IIT (ISM) Dhanbad · NCSC302</p>
-            <h1>Compiler Design</h1>
-            <p>
-                IIT professor's notes and course resources, organized to support
-                learning the stages of compiler construction.
-            </p>
+        }
+    </script>
+    <script src="assets/site.js" defer></script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to course resources</a>
+    <header class="site-header">
+        <a class="brand" href="#top" aria-label="Compiler Design course home">
+            <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+            <span class="brand-name">Compiler Design<span>NCSC302 · IIT (ISM) Dhanbad</span></span>
+        </a>
+        <nav class="primary-nav" aria-label="Course sections">
+            <a href="#lectures">Notes</a>
+            <a href="#labs">Labs</a>
+            <a href="#tutorials">Tutorials</a>
+            <a href="#past-papers">Past papers</a>
+            <a href="#course-files">Course files</a>
+        </nav>
+    </header>
+    <main id="main">
+        <section class="intro" id="top" aria-labelledby="page-title">
+            <div class="intro-copy">
+                <p class="course-label"><span class="signal-dot" aria-hidden="true"></span>IIT professor's course resource library</p>
+                <h1 id="page-title">Compiler<br />Design</h1>
+                <p class="intro-summary">Lecture notes and practical resources for the stages of compiler construction, from lexical analysis to code optimization.</p>
+                <p class="instructor">Course taught by <a href="https://www.iitism.ac.in/faculty-details?faculty=anjanchowdhury">Prof. Anjan Chowdhury</a><span>Department of Computer Science and Engineering · IIT (ISM) Dhanbad</span></p>
+                <div class="quick-counts" aria-label="Course library contents">
+                    <p><strong>34</strong><span>lecture-note PDFs</span></p>
+                    <p><strong>11</strong><span>lab weeks</span></p>
+                    <p><strong>11</strong><span>tutorial sheets</span></p>
+                    <p><strong>7</strong><span>past-paper resources</span></p>
+                </div>
+            </div>
+            <figure class="feature-figure">
+                <img src="assets/compiler-pipeline.svg" alt="Compiler pipeline from source code through lexical, syntax, and semantic analysis to intermediate and target code" width="960" height="600" />
+                <figcaption><span>Compiler pipeline</span> Analyze · transform · generate</figcaption>
+            </figure>
+        </section>
+        <section class="library-section" id="lectures" aria-labelledby="lectures-title">
+            <div class="section-heading">
+                <div><p class="section-kicker">Course material</p><h2 id="lectures-title">Resource library</h2></div>
+                <p class="section-note">Search and filter the full course collection. Open a PDF in the built-in preview or in a new tab.</p>
+            </div>
+            <div class="library-tools">
+                <search class="resource-search" aria-label="Search course resources">
+                    <label for="resource-search-input">Find a resource</label>
+                    <input id="resource-search-input" type="search" placeholder="Search topics, weeks, or files" />
+                </search>
+                <div class="filter-control"><label for="group-filter">Show</label><select id="group-filter">
+                    <option value="all">All resources</option>
+                    <option value="notes">Lecture notes</option>
+                    <option value="labs">Labs and source code</option>
+                    <option value="tutorials">Tutorials</option>
+                    <option value="past-papers">Past papers</option>
+                    <option value="course-files">Course files</option>
+                </select></div>
+                <p class="result-count" id="result-count" role="status" aria-live="polite"></p>
+            </div>
+            <p class="no-results" id="no-results" hidden>No resources match that search. Try another topic or choose “All resources”.</p>
+            <section class="catalog-section" data-catalog-section aria-labelledby="course-introduction-title">
+                <header class="unit-heading">
+                    <span class="unit-index">00</span>
+                    <div>
+                        <h3 id="course-introduction-title">Course introduction</h3>
+                        <p>Start with the compiler overview and course context</p>
+                    </div>
+                </header>
+                <ul class="resource-list">
+                    <li class="catalog-entry" data-index-group="notes" data-keywords="lecture 1   compiling your code notes/lecture 1 - compiling your code.pdf notes pdf · course overview">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Notes/Lecture%201%20-%20compiling%20your%20code.pdf">
+                            <span class="resource-title">Lecture 1 compiling your code</span>
+                            <span class="resource-meta">PDF · Course overview</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <section class="catalog-section" data-catalog-section aria-labelledby="lexical-analysis-title">
+                <header class="unit-heading">
+                    <span class="unit-index">01</span>
+                    <div>
+                        <h3 id="lexical-analysis-title">Lexical analysis</h3>
+                        <p>Tokens, regular expressions, and scanner construction</p>
+                    </div>
+                </header>
+                <ul class="resource-list">
+                    <li class="catalog-entry" data-index-group="notes" data-keywords="lex notes/1_lexical_analysis/lex.pdf notes pdf · lecture notes">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Notes/1_Lexical_Analysis/Lex.pdf">
+                            <span class="resource-title">Lex</span>
+                            <span class="resource-meta">PDF · Lecture notes</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="notes" data-keywords="lexical analysis v1.0 notes/1_lexical_analysis/lexical analysis v1.0.pdf notes pdf · lecture notes">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Notes/1_Lexical_Analysis/Lexical%20Analysis%20v1.0.pdf">
+                            <span class="resource-title">Lexical Analysis v1.0</span>
+                            <span class="resource-meta">PDF · Lecture notes</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="notes" data-keywords="lexical analysis v2.0 notes/1_lexical_analysis/lexical analysis v2.0.pdf notes pdf · lecture notes">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Notes/1_Lexical_Analysis/Lexical%20analysis%20v2.0.pdf">
+                            <span class="resource-title">Lexical analysis v2.0</span>
+                            <span class="resource-meta">PDF · Lecture notes</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="notes" data-keywords="lexical analysis v3.0 notes/1_lexical_analysis/lexical analysis v3.0.pdf notes pdf · lecture notes">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Notes/1_Lexical_Analysis/Lexical%20analysis%20v3.0.pdf">
+                            <span class="resource-title">Lexical analysis v3.0</span>
+                            <span class="resource-meta">PDF · Lecture notes</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="notes" data-keywords="lexical analysis v4.0 notes/1_lexical_analysis/lexical analysis v4.0.pdf notes pdf · lecture notes">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Notes/1_Lexical_Analysis/Lexical%20analysis%20v4.0.pdf">
+                            <span class="resource-title">Lexical analysis v4.0</span>
+                            <span class="resource-meta">PDF · Lecture notes</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <section class="catalog-section" data-catalog-section aria-labelledby="syntax-analysis-title">
+                <header class="unit-heading">
+                    <span class="unit-index">02</span>
+                    <div>
+                        <h3 id="syntax-analysis-title">Syntax analysis</h3>
+                        <p>Grammars, parsing strategies, and Yacc</p>
+                    </div>
+                </header>
+                <ul class="resource-list">
+                    <li class="catalog-entry" data-index-group="notes" data-keywords="bottom up parsing v1.0 notes/2_syntax analysis/bottom up parsing/bottom up parsing v1.0.pdf notes pdf · lecture notes">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Notes/2_Syntax%20Analysis/Bottom%20Up%20Parsing/Bottom%20up%20parsing%20V1.0.pdf">
+                            <span class="resource-title">Bottom up parsing V1.0</span>
+                            <span class="resource-meta">PDF · Lecture notes</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="notes" data-keywords="bottom up parsing v2.0 notes/2_syntax analysis/bottom up parsing/bottom up parsing v2.0.pdf notes pdf · lecture notes">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Notes/2_Syntax%20Analysis/Bottom%20Up%20Parsing/Bottom%20up%20parsing%20v2.0.pdf">
+                            <span class="resource-title">Bottom up parsing v2.0</span>
+                            <span class="resource-meta">PDF · Lecture notes</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="notes" data-keywords="bottom up parsing v3.0 notes/2_syntax analysis/bottom up parsing/bottom up parsing v3.0.pdf notes pdf · lecture notes">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Notes/2_Syntax%20Analysis/Bottom%20Up%20Parsing/Bottom%20up%20parsing%20v3.0.pdf">
+                            <span class="resource-title">Bottom up parsing v3.0</span>
+                            <span class="resource-meta">PDF · Lecture notes</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="notes" data-keywords="syntax analysis v1.0 notes/2_syntax analysis/syntax analysis v1.0.pdf notes pdf · lecture notes">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Notes/2_Syntax%20Analysis/Syntax%20Analysis%20v1.0.pdf">
+                            <span class="resource-title">Syntax Analysis v1.0</span>
+                            <span class="resource-meta">PDF · Lecture notes</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="notes" data-keywords="syntax analysis v2.0 notes/2_syntax analysis/syntax analysis v2.0.pdf notes pdf · lecture notes">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Notes/2_Syntax%20Analysis/Syntax%20Analysis%20v2.0.pdf">
+                            <span class="resource-title">Syntax Analysis v2.0</span>
+                            <span class="resource-meta">PDF · Lecture notes</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="notes" data-keywords="syntax analysis v3.0 notes/2_syntax analysis/syntax analysis v3.0.pdf notes pdf · lecture notes">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Notes/2_Syntax%20Analysis/Syntax%20analysis%20v3.0.pdf">
+                            <span class="resource-title">Syntax analysis v3.0</span>
+                            <span class="resource-meta">PDF · Lecture notes</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="notes" data-keywords="syntax analysis v4.0 notes/2_syntax analysis/syntax analysis v4.0.pdf notes pdf · lecture notes">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Notes/2_Syntax%20Analysis/Syntax%20analysis%20v4.0.pdf">
+                            <span class="resource-title">Syntax analysis v4.0</span>
+                            <span class="resource-meta">PDF · Lecture notes</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="notes" data-keywords="syntax analysis v5.0 notes/2_syntax analysis/syntax analysis v5.0.pdf notes pdf · lecture notes">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Notes/2_Syntax%20Analysis/Syntax%20analysis%20v5.0.pdf">
+                            <span class="resource-title">Syntax analysis v5.0</span>
+                            <span class="resource-meta">PDF · Lecture notes</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="notes" data-keywords="yacc notes/2_syntax analysis/yacc.pdf notes pdf · lecture notes">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Notes/2_Syntax%20Analysis/yacc.pdf">
+                            <span class="resource-title">yacc</span>
+                            <span class="resource-meta">PDF · Lecture notes</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <section class="catalog-section" data-catalog-section aria-labelledby="semantic-analysis-title">
+                <header class="unit-heading">
+                    <span class="unit-index">03</span>
+                    <div>
+                        <h3 id="semantic-analysis-title">Semantic analysis</h3>
+                        <p>Type checking, syntax-directed translation, and intermediate code</p>
+                    </div>
+                </header>
+                <ul class="resource-list">
+                    <li class="catalog-entry" data-index-group="notes" data-keywords="semantic analysis and intermediate code notes/3_semantic_analysis/semantic analysis and intermediate code.pdf notes pdf · lecture notes">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Notes/3_Semantic_Analysis/Semantic%20Analysis%20and%20intermediate%20code.pdf">
+                            <span class="resource-title">Semantic Analysis and intermediate code</span>
+                            <span class="resource-meta">PDF · Lecture notes</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="notes" data-keywords="semantic analysis ii v1.0 notes/3_semantic_analysis/semantic analysis ii v1.0.pdf notes pdf · lecture notes">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Notes/3_Semantic_Analysis/semantic%20analysis%20II%20v1.0.pdf">
+                            <span class="resource-title">semantic analysis II v1.0</span>
+                            <span class="resource-meta">PDF · Lecture notes</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="notes" data-keywords="semantic analysis v1.0 notes/3_semantic_analysis/semantic analysis v1.0.pdf notes pdf · lecture notes">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Notes/3_Semantic_Analysis/semantic%20analysis%20V1.0.pdf">
+                            <span class="resource-title">semantic analysis V1.0</span>
+                            <span class="resource-meta">PDF · Lecture notes</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="notes" data-keywords="semantic analysis v2.0 notes/3_semantic_analysis/semantic analysis v2.0.pdf notes pdf · lecture notes">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Notes/3_Semantic_Analysis/semantic%20analysis%20v2.0.pdf">
+                            <span class="resource-title">semantic analysis v2.0</span>
+                            <span class="resource-meta">PDF · Lecture notes</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="notes" data-keywords="semantic analysis v3.0 notes/3_semantic_analysis/semantic analysis v3.0.pdf notes pdf · lecture notes">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Notes/3_Semantic_Analysis/semantic%20analysis%20v3.0.pdf">
+                            <span class="resource-title">semantic analysis v3.0</span>
+                            <span class="resource-meta">PDF · Lecture notes</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="notes" data-keywords="semantic analysys ii v2.0 notes/3_semantic_analysis/semantic analysys ii v2.0.pdf notes pdf · lecture notes">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Notes/3_Semantic_Analysis/semantic%20analysys%20II%20v2.0.pdf">
+                            <span class="resource-title">semantic analysys II v2.0</span>
+                            <span class="resource-meta">PDF · Lecture notes</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <section class="catalog-section" data-catalog-section aria-labelledby="intermediate-code-title">
+                <header class="unit-heading">
+                    <span class="unit-index">04</span>
+                    <div>
+                        <h3 id="intermediate-code-title">Intermediate code</h3>
+                        <p>Intermediate representations and code generation</p>
+                    </div>
+                </header>
+                <ul class="resource-list">
+                    <li class="catalog-entry" data-index-group="notes" data-keywords="intermediate code generation v1. 0 notes/4_imtermediate_code/intermediate code generation v1. 0.pdf notes pdf · lecture notes">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Notes/4_Imtermediate_Code/intermediate%20code%20generation%20V1.%200.pdf">
+                            <span class="resource-title">intermediate code generation V1. 0</span>
+                            <span class="resource-meta">PDF · Lecture notes</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="notes" data-keywords="intermediate code generation v2.0 notes/4_imtermediate_code/intermediate code generation v2.0.pdf notes pdf · lecture notes">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Notes/4_Imtermediate_Code/intermediate%20code%20generation%20V2.0.pdf">
+                            <span class="resource-title">intermediate code generation V2.0</span>
+                            <span class="resource-meta">PDF · Lecture notes</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="notes" data-keywords="intermediate code generation v3.0 notes/4_imtermediate_code/intermediate code generation v3.0 .pdf notes pdf · lecture notes">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Notes/4_Imtermediate_Code/intermediate%20code%20generation%20V3.0%20.pdf">
+                            <span class="resource-title">intermediate code generation V3.0</span>
+                            <span class="resource-meta">PDF · Lecture notes</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="notes" data-keywords="intermediate code generation v4.0 notes/4_imtermediate_code/intermediate code generation v4.0.pdf notes pdf · lecture notes">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Notes/4_Imtermediate_Code/intermediate%20code%20generation%20V4.0.pdf">
+                            <span class="resource-title">intermediate code generation V4.0</span>
+                            <span class="resource-meta">PDF · Lecture notes</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <section class="catalog-section" data-catalog-section aria-labelledby="code-optimization-title">
+                <header class="unit-heading">
+                    <span class="unit-index">05</span>
+                    <div>
+                        <h3 id="code-optimization-title">Code optimization</h3>
+                        <p>Techniques for improving generated code</p>
+                    </div>
+                </header>
+                <ul class="resource-list">
+                    <li class="catalog-entry" data-index-group="notes" data-keywords="code optimisation v1.0 notes/5_code_optimization/code optimisation v1.0 .pdf notes pdf · lecture notes">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Notes/5_Code_Optimization/code%20optimisation%20V1.0%20.pdf">
+                            <span class="resource-title">code optimisation V1.0</span>
+                            <span class="resource-meta">PDF · Lecture notes</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="notes" data-keywords="code optimisation v2.0 notes/5_code_optimization/code optimisation v2.0 .pdf notes pdf · lecture notes">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Notes/5_Code_Optimization/code%20optimisation%20V2.0%20.pdf">
+                            <span class="resource-title">code optimisation V2.0</span>
+                            <span class="resource-meta">PDF · Lecture notes</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="notes" data-keywords="code optimization v3.0 notes/5_code_optimization/code optimization v3.0.pdf notes pdf · lecture notes">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Notes/5_Code_Optimization/code%20optimization%20v3.0.pdf">
+                            <span class="resource-title">code optimization v3.0</span>
+                            <span class="resource-meta">PDF · Lecture notes</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <section class="catalog-section" data-catalog-section aria-labelledby="consolidated-study-notes-title">
+                <header class="unit-heading">
+                    <span class="unit-index">06</span>
+                    <div>
+                        <h3 id="consolidated-study-notes-title">Consolidated study notes</h3>
+                        <p>Combined topic PDFs for revision</p>
+                    </div>
+                </header>
+                <ul class="resource-list">
+                    <li class="catalog-entry" data-index-group="notes" data-keywords="1 lexical analysis study notes notes/combined_pdfs/1_lexical_analysis_study_notes.pdf notes pdf · lecture notes">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Notes/Combined_pdfs/1_lexical_analysis_study_notes.pdf">
+                            <span class="resource-title">1 lexical analysis study notes</span>
+                            <span class="resource-meta">PDF · Lecture notes</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="notes" data-keywords="2 bottom up parser study notes notes/combined_pdfs/2_bottom_up_parser_study_notes.pdf notes pdf · lecture notes">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Notes/Combined_pdfs/2_bottom_up_parser_study_notes.pdf">
+                            <span class="resource-title">2 bottom up parser study notes</span>
+                            <span class="resource-meta">PDF · Lecture notes</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="notes" data-keywords="2 syntax analysis study notes notes/combined_pdfs/2_syntax_analysis_study_notes.pdf notes pdf · lecture notes">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Notes/Combined_pdfs/2_syntax_analysis_study_notes.pdf">
+                            <span class="resource-title">2 syntax analysis study notes</span>
+                            <span class="resource-meta">PDF · Lecture notes</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="notes" data-keywords="3 semantic analysis study notes notes/combined_pdfs/3_semantic_analysis_study_notes.pdf notes pdf · lecture notes">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Notes/Combined_pdfs/3_semantic_analysis_study_notes.pdf">
+                            <span class="resource-title">3 semantic analysis study notes</span>
+                            <span class="resource-meta">PDF · Lecture notes</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="notes" data-keywords="4 imtermediate code study notes notes/combined_pdfs/4_imtermediate_code_study_notes.pdf notes pdf · lecture notes">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Notes/Combined_pdfs/4_imtermediate_code_study_notes.pdf">
+                            <span class="resource-title">4 imtermediate code study notes</span>
+                            <span class="resource-meta">PDF · Lecture notes</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="notes" data-keywords="5 code optimization study notes notes/combined_pdfs/5_code_optimization_study_notes.pdf notes pdf · lecture notes">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Notes/Combined_pdfs/5_code_optimization_study_notes.pdf">
+                            <span class="resource-title">5 code optimization study notes</span>
+                            <span class="resource-meta">PDF · Lecture notes</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <section class="catalog-section" id="labs" data-catalog-section aria-labelledby="lab-week-01-title">
+                <header class="unit-heading">
+                    <span class="unit-index">11</span>
+                    <div>
+                        <h3 id="lab-week-01-title">Lab week 01</h3>
+                        <p>File processing and character, word, and line counting</p>
+                    </div>
+                </header>
+                <ul class="resource-list">
+                    <li class="catalog-entry" data-index-group="labs" data-keywords="count labs/lab_01/count.c labs c source · lab example">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Labs/Lab_01/count.c">
+                            <span class="resource-title">count</span>
+                            <span class="resource-meta">C source · Lab example</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="labs" data-keywords="count multiple labs/lab_01/count_multiple.c labs c source · lab example">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Labs/Lab_01/count_multiple.c">
+                            <span class="resource-title">count multiple</span>
+                            <span class="resource-meta">C source · Lab example</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="labs" data-keywords="practical week1 labs/lab_01/practical_week1.pdf labs pdf · practical sheet">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Labs/Lab_01/Practical_week1.pdf">
+                            <span class="resource-title">Practical week1</span>
+                            <span class="resource-meta">PDF · Practical sheet</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="labs" data-keywords="sample2 labs/lab_01/sample2.txt labs sample input · lab example">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Labs/Lab_01/Sample2.txt">
+                            <span class="resource-title">Sample2</span>
+                            <span class="resource-meta">Sample input · Lab example</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="labs" data-keywords="sample labs/lab_01/sample.txt labs sample input · lab example">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Labs/Lab_01/Sample.txt">
+                            <span class="resource-title">Sample</span>
+                            <span class="resource-meta">Sample input · Lab example</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <section class="catalog-section" data-catalog-section aria-labelledby="lab-week-02-title">
+                <header class="unit-heading">
+                    <span class="unit-index">12</span>
+                    <div>
+                        <h3 id="lab-week-02-title">Lab week 02</h3>
+                        <p>Lexical rules and a calculator with Flex</p>
+                    </div>
+                </header>
+                <ul class="resource-list">
+                    <li class="catalog-entry" data-index-group="labs" data-keywords="calculator labs/lab_02/calculator.l labs lex source · lab example">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Labs/Lab_02/calculator.l">
+                            <span class="resource-title">calculator</span>
+                            <span class="resource-meta">Lex source · Lab example</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="labs" data-keywords="practical week2 labs/lab_02/practical_week2.pdf labs pdf · practical sheet">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Labs/Lab_02/Practical_week2.pdf">
+                            <span class="resource-title">Practical week2</span>
+                            <span class="resource-meta">PDF · Practical sheet</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="labs" data-keywords="tokens labs/lab_02/tokens.l labs lex source · lab example">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Labs/Lab_02/tokens.l">
+                            <span class="resource-title">tokens</span>
+                            <span class="resource-meta">Lex source · Lab example</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <section class="catalog-section" data-catalog-section aria-labelledby="lab-week-03-title">
+                <header class="unit-heading">
+                    <span class="unit-index">13</span>
+                    <div>
+                        <h3 id="lab-week-03-title">Lab week 03</h3>
+                        <p>Pattern analysis and multi-file word counting</p>
+                    </div>
+                </header>
+                <ul class="resource-list">
+                    <li class="catalog-entry" data-index-group="labs" data-keywords="function analyzer labs/lab_03/function_analyzer.l labs lex source · lab example">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Labs/Lab_03/function_analyzer.l">
+                            <span class="resource-title">function analyzer</span>
+                            <span class="resource-meta">Lex source · Lab example</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="labs" data-keywords="practical week3 labs/lab_03/practical_week3.pdf labs pdf · practical sheet">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Labs/Lab_03/Practical_week3.pdf">
+                            <span class="resource-title">Practical week3</span>
+                            <span class="resource-meta">PDF · Practical sheet</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="labs" data-keywords="wordcount labs/lab_03/wordcount.l labs lex source · lab example">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Labs/Lab_03/wordcount.l">
+                            <span class="resource-title">wordcount</span>
+                            <span class="resource-meta">Lex source · Lab example</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <section class="catalog-section" data-catalog-section aria-labelledby="lab-week-04-title">
+                <header class="unit-heading">
+                    <span class="unit-index">14</span>
+                    <div>
+                        <h3 id="lab-week-04-title">Lab week 04</h3>
+                        <p>Removing immediate and indirect left recursion</p>
+                    </div>
+                </header>
+                <ul class="resource-list">
+                    <li class="catalog-entry" data-index-group="labs" data-keywords="indirect left recursion labs/lab_04/indirect_left_recursion.c labs c source · lab example">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Labs/Lab_04/indirect_left_recursion.c">
+                            <span class="resource-title">indirect left recursion</span>
+                            <span class="resource-meta">C source · Lab example</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="labs" data-keywords="left recursion labs/lab_04/left_recursion.c labs c source · lab example">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Labs/Lab_04/left_recursion.c">
+                            <span class="resource-title">left recursion</span>
+                            <span class="resource-meta">C source · Lab example</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="labs" data-keywords="practical week4 labs/lab_04/practical_week4.pdf labs pdf · practical sheet">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Labs/Lab_04/Practical_week4.pdf">
+                            <span class="resource-title">Practical week4</span>
+                            <span class="resource-meta">PDF · Practical sheet</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <section class="catalog-section" data-catalog-section aria-labelledby="lab-week-05-title">
+                <header class="unit-heading">
+                    <span class="unit-index">15</span>
+                    <div>
+                        <h3 id="lab-week-05-title">Lab week 05</h3>
+                        <p>FIRST and FOLLOW sets and LL(1) parsing</p>
+                    </div>
+                </header>
+                <ul class="resource-list">
+                    <li class="catalog-entry" data-index-group="labs" data-keywords="first follow labs/lab_05/first_follow.c labs c source · lab example">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Labs/Lab_05/first_follow.c">
+                            <span class="resource-title">first follow</span>
+                            <span class="resource-meta">C source · Lab example</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="labs" data-keywords="ll1 parser labs/lab_05/ll1_parser.c labs c source · lab example">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Labs/Lab_05/ll1_parser.c">
+                            <span class="resource-title">ll1 parser</span>
+                            <span class="resource-meta">C source · Lab example</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="labs" data-keywords="practical week5 labs/lab_05/practical_week5.pdf labs pdf · practical sheet">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Labs/Lab_05/Practical_week5.pdf">
+                            <span class="resource-title">Practical week5</span>
+                            <span class="resource-meta">PDF · Practical sheet</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <section class="catalog-section" data-catalog-section aria-labelledby="lab-week-06-title">
+                <header class="unit-heading">
+                    <span class="unit-index">16</span>
+                    <div>
+                        <h3 id="lab-week-06-title">Lab week 06</h3>
+                        <p>Error recovery and operator-precedence parsing</p>
+                    </div>
+                </header>
+                <ul class="resource-list">
+                    <li class="catalog-entry" data-index-group="labs" data-keywords="ll1 panic recovery labs/lab_06/ll1_panic_recovery.c labs c source · lab example">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Labs/Lab_06/ll1_panic_recovery.c">
+                            <span class="resource-title">ll1 panic recovery</span>
+                            <span class="resource-meta">C source · Lab example</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="labs" data-keywords="operator precedence labs/lab_06/operator_precedence.c labs c source · lab example">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Labs/Lab_06/operator_precedence.c">
+                            <span class="resource-title">operator precedence</span>
+                            <span class="resource-meta">C source · Lab example</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="labs" data-keywords="practical week6 labs/lab_06/practical_week6.pdf labs pdf · practical sheet">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Labs/Lab_06/Practical_week6.pdf">
+                            <span class="resource-title">Practical week6</span>
+                            <span class="resource-meta">PDF · Practical sheet</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <section class="catalog-section" data-catalog-section aria-labelledby="lab-week-07-title">
+                <header class="unit-heading">
+                    <span class="unit-index">17</span>
+                    <div>
+                        <h3 id="lab-week-07-title">Lab week 07</h3>
+                        <p>Canonical LR(0) item sets</p>
+                    </div>
+                </header>
+                <ul class="resource-list">
+                    <li class="catalog-entry" data-index-group="labs" data-keywords="lr0 items labs/lab_07/lr0_items.c labs c source · lab example">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Labs/Lab_07/lr0_items.c">
+                            <span class="resource-title">lr0 items</span>
+                            <span class="resource-meta">C source · Lab example</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="labs" data-keywords="practical week7 labs/lab_07/practical_week7.pdf labs pdf · practical sheet">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Labs/Lab_07/Practical_week7.pdf">
+                            <span class="resource-title">Practical week7</span>
+                            <span class="resource-meta">PDF · Practical sheet</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <section class="catalog-section" data-catalog-section aria-labelledby="lab-week-08-title">
+                <header class="unit-heading">
+                    <span class="unit-index">18</span>
+                    <div>
+                        <h3 id="lab-week-08-title">Lab week 08</h3>
+                        <p>Integrating Lex and Yacc for expression parsing</p>
+                    </div>
+                </header>
+                <ul class="resource-list">
+                    <li class="catalog-entry" data-index-group="labs" data-keywords="lexer labs/lab_08/lexer.l labs lex source · lab example">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Labs/Lab_08/lexer.l">
+                            <span class="resource-title">lexer</span>
+                            <span class="resource-meta">Lex source · Lab example</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="labs" data-keywords="parser labs/lab_08/parser.y labs yacc source · lab example">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Labs/Lab_08/parser.y">
+                            <span class="resource-title">parser</span>
+                            <span class="resource-meta">Yacc source · Lab example</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="labs" data-keywords="practical week8 labs/lab_08/practical_week8.pdf labs pdf · practical sheet">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Labs/Lab_08/Practical_week8.pdf">
+                            <span class="resource-title">Practical week8</span>
+                            <span class="resource-meta">PDF · Practical sheet</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <section class="catalog-section" data-catalog-section aria-labelledby="lab-week-09-title">
+                <header class="unit-heading">
+                    <span class="unit-index">19</span>
+                    <div>
+                        <h3 id="lab-week-09-title">Lab week 09</h3>
+                        <p>Syntax trees and directed acyclic graphs</p>
+                    </div>
+                </header>
+                <ul class="resource-list">
+                    <li class="catalog-entry" data-index-group="labs" data-keywords="practical week9 labs/lab_09/practical_week9.pdf labs pdf · practical sheet">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Labs/Lab_09/Practical_week9.pdf">
+                            <span class="resource-title">Practical week9</span>
+                            <span class="resource-meta">PDF · Practical sheet</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="labs" data-keywords="tree dag labs/lab_09/tree_dag.c labs c source · lab example">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Labs/Lab_09/tree_dag.c">
+                            <span class="resource-title">tree dag</span>
+                            <span class="resource-meta">C source · Lab example</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <section class="catalog-section" data-catalog-section aria-labelledby="lab-week-10-title">
+                <header class="unit-heading">
+                    <span class="unit-index">20</span>
+                    <div>
+                        <h3 id="lab-week-10-title">Lab week 10</h3>
+                        <p>Three-address code generation</p>
+                    </div>
+                </header>
+                <ul class="resource-list">
+                    <li class="catalog-entry" data-index-group="labs" data-keywords="practical week10 labs/lab_10/practical_week10.pdf labs pdf · practical sheet">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Labs/Lab_10/Practical_week10.pdf">
+                            <span class="resource-title">Practical week10</span>
+                            <span class="resource-meta">PDF · Practical sheet</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="labs" data-keywords="three address code labs/lab_10/three_address_code.c labs c source · lab example">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Labs/Lab_10/three_address_code.c">
+                            <span class="resource-title">three address code</span>
+                            <span class="resource-meta">C source · Lab example</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <section class="catalog-section" data-catalog-section aria-labelledby="lab-week-11-title">
+                <header class="unit-heading">
+                    <span class="unit-index">21</span>
+                    <div>
+                        <h3 id="lab-week-11-title">Lab week 11</h3>
+                        <p>Control-flow graphs and Graphviz output</p>
+                    </div>
+                </header>
+                <ul class="resource-list">
+                    <li class="catalog-entry" data-index-group="labs" data-keywords="cfg dot labs/lab_11/cfg_dot.c labs c source · lab example">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Labs/Lab_11/cfg_dot.c">
+                            <span class="resource-title">cfg dot</span>
+                            <span class="resource-meta">C source · Lab example</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="labs" data-keywords="practical week11 labs/lab_11/practical_week11.pdf labs pdf · practical sheet">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Labs/Lab_11/Practical_week11.pdf">
+                            <span class="resource-title">Practical week11</span>
+                            <span class="resource-meta">PDF · Practical sheet</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <section class="catalog-section" id="tutorials" data-catalog-section aria-labelledby="weekly-tutorials-title">
+                <header class="unit-heading">
+                    <span class="unit-index">30</span>
+                    <div>
+                        <h3 id="weekly-tutorials-title">Weekly tutorials</h3>
+                        <p>Practice compiler concepts with the course tutorial sheets</p>
+                    </div>
+                </header>
+                <ul class="resource-list">
+                    <li class="catalog-entry" data-index-group="tutorials" data-keywords="tutorial week 1 tutorials/tutorial week 1.pdf tutorials pdf · tutorial">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Tutorials/Tutorial%20week%201.pdf">
+                            <span class="resource-title">Tutorial week 1</span>
+                            <span class="resource-meta">PDF · Tutorial</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="tutorials" data-keywords="tutorial week 2 tutorials/tutorial week 2.pdf tutorials pdf · tutorial">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Tutorials/Tutorial%20week%202.pdf">
+                            <span class="resource-title">Tutorial week 2</span>
+                            <span class="resource-meta">PDF · Tutorial</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="tutorials" data-keywords="tutorial week 3 tutorials/tutorial week 3.pdf tutorials pdf · tutorial">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Tutorials/Tutorial%20week%203.pdf">
+                            <span class="resource-title">Tutorial week 3</span>
+                            <span class="resource-meta">PDF · Tutorial</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="tutorials" data-keywords="tutorial week 4 tutorials/tutorial week 4.pdf tutorials pdf · tutorial">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Tutorials/Tutorial%20week%204.pdf">
+                            <span class="resource-title">Tutorial week 4</span>
+                            <span class="resource-meta">PDF · Tutorial</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="tutorials" data-keywords="tutorial week 5 tutorials/tutorial week 5.pdf tutorials pdf · tutorial">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Tutorials/Tutorial%20week%205.pdf">
+                            <span class="resource-title">Tutorial week 5</span>
+                            <span class="resource-meta">PDF · Tutorial</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="tutorials" data-keywords="tutorial week 6 tutorials/tutorial week 6.pdf tutorials pdf · tutorial">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Tutorials/Tutorial%20week%206.pdf">
+                            <span class="resource-title">Tutorial week 6</span>
+                            <span class="resource-meta">PDF · Tutorial</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="tutorials" data-keywords="tutorial week 7 tutorials/tutorial week 7.pdf tutorials pdf · tutorial">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Tutorials/Tutorial%20week%207.pdf">
+                            <span class="resource-title">Tutorial week 7</span>
+                            <span class="resource-meta">PDF · Tutorial</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="tutorials" data-keywords="tutorial week 8 tutorials/tutorial week 8.pdf tutorials pdf · tutorial">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Tutorials/Tutorial%20week%208.pdf">
+                            <span class="resource-title">Tutorial week 8</span>
+                            <span class="resource-meta">PDF · Tutorial</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="tutorials" data-keywords="tutorial week 9 tutorials/tutorial week 9.pdf tutorials pdf · tutorial">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Tutorials/Tutorial%20week%209.pdf">
+                            <span class="resource-title">Tutorial week 9</span>
+                            <span class="resource-meta">PDF · Tutorial</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="tutorials" data-keywords="tutorial week 10 tutorials/tutorial week 10.pdf tutorials pdf · tutorial">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Tutorials/Tutorial%20week%2010.pdf">
+                            <span class="resource-title">Tutorial week 10</span>
+                            <span class="resource-meta">PDF · Tutorial</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="tutorials" data-keywords="tutorial week 11 tutorials/tutorial week 11.pdf tutorials pdf · tutorial">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Tutorials/Tutorial%20week%2011.pdf">
+                            <span class="resource-title">Tutorial week 11</span>
+                            <span class="resource-meta">PDF · Tutorial</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <section class="catalog-section" id="past-papers" data-catalog-section aria-labelledby="previous-year-questions-title">
+                <header class="unit-heading">
+                    <span class="unit-index">31</span>
+                    <div>
+                        <h3 id="previous-year-questions-title">Previous-year questions</h3>
+                        <p>Past examination papers, solutions, and scanned questions</p>
+                    </div>
+                </header>
+                <ul class="resource-list">
+                    <li class="catalog-entry" data-index-group="past-papers" data-keywords="compiler midsem 23 24, 24 25 260919 152832 pyqs/compiler midsem 23-24, 24-25_260919_152832.pdf past-papers pdf · past paper or solution">
+                        <a class="resource-link" target="_blank" rel="noopener" href="PYQs/compiler%20Midsem%2023-24%2C%2024-25_260919_152832.pdf">
+                            <span class="resource-title">compiler Midsem 23 24, 24 25 260919 152832</span>
+                            <span class="resource-meta">PDF · Past paper or solution</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="past-papers" data-keywords="compiler design end sem solution 260919 152352 pyqs/compiler_design_end_sem_solution_260919_152352.pdf past-papers pdf · past paper or solution">
+                        <a class="resource-link" target="_blank" rel="noopener" href="PYQs/Compiler_Design_End_Sem_Solution_260919_152352.pdf">
+                            <span class="resource-title">Compiler Design End Sem Solution 260919 152352</span>
+                            <span class="resource-meta">PDF · Past paper or solution</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="past-papers" data-keywords="csc302 compiler design (4) pyqs/csc302_compiler_design (4).pdf past-papers pdf · past paper or solution">
+                        <a class="resource-link" target="_blank" rel="noopener" href="PYQs/CSC302_Compiler_Design%20%284%29.pdf">
+                            <span class="resource-title">CSC302 Compiler Design (4)</span>
+                            <span class="resource-meta">PDF · Past paper or solution</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="past-papers" data-keywords="mid sem question paper solution pyqs/mid sem question paper solution.pdf past-papers pdf · past paper or solution">
+                        <a class="resource-link" target="_blank" rel="noopener" href="PYQs/mid%20sem%20question%20paper%20solution.pdf">
+                            <span class="resource-title">mid sem question paper solution</span>
+                            <span class="resource-meta">PDF · Past paper or solution</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="past-papers" data-keywords="whatsapp image 2026 09 19 at 7.04.27 pm pyqs/whatsapp image 2026-09-19 at 7.04.27 pm.jpeg past-papers image · past paper or solution">
+                        <a class="resource-link" target="_blank" rel="noopener" href="PYQs/WhatsApp%20Image%202026-09-19%20at%207.04.27%20PM.jpeg">
+                            <span class="resource-title">WhatsApp Image 2026 09 19 at 7.04.27 PM</span>
+                            <span class="resource-meta">Image · Past paper or solution</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="past-papers" data-keywords="whatsapp image 2026 09 19 at 7.04.28 pm pyqs/whatsapp image 2026-09-19 at 7.04.28 pm.jpeg past-papers image · past paper or solution">
+                        <a class="resource-link" target="_blank" rel="noopener" href="PYQs/WhatsApp%20Image%202026-09-19%20at%207.04.28%20PM.jpeg">
+                            <span class="resource-title">WhatsApp Image 2026 09 19 at 7.04.28 PM</span>
+                            <span class="resource-meta">Image · Past paper or solution</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="past-papers" data-keywords="whatsapp image 2026 09 19 at 7.04.29 pm pyqs/whatsapp image 2026-09-19 at 7.04.29 pm.jpeg past-papers image · past paper or solution">
+                        <a class="resource-link" target="_blank" rel="noopener" href="PYQs/WhatsApp%20Image%202026-09-19%20at%207.04.29%20PM.jpeg">
+                            <span class="resource-title">WhatsApp Image 2026 09 19 at 7.04.29 PM</span>
+                            <span class="resource-meta">Image · Past paper or solution</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <section class="catalog-section" id="course-files" data-catalog-section aria-labelledby="course-reference-files-title">
+                <header class="unit-heading">
+                    <span class="unit-index">32</span>
+                    <div>
+                        <h3 id="course-reference-files-title">Course reference files</h3>
+                        <p>Course planning and recommended reference material</p>
+                    </div>
+                </header>
+                <ul class="resource-list">
+                    <li class="catalog-entry" data-index-group="course-files" data-keywords="compiler design course logistics compiler-design-course-logistics.pdf course-files pdf · course document">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Compiler-Design-Course-Logistics.pdf">
+                            <span class="resource-title">Compiler Design Course Logistics</span>
+                            <span class="resource-meta">PDF · Course document</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="course-files" data-keywords="lecture plan   ncsc302 lecture plan - ncsc302.pdf course-files pdf · course document">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Lecture%20Plan%20-%20NCSC302.pdf">
+                            <span class="resource-title">Lecture Plan   NCSC302</span>
+                            <span class="resource-meta">PDF · Course document</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                    <li class="catalog-entry" data-index-group="course-files" data-keywords="modern compiler implementation in c   book by andrew appel book/modern compiler implementation in c - book by andrew appel.pdf course-files pdf · course document">
+                        <a class="resource-link" target="_blank" rel="noopener" href="Book/Modern%20Compiler%20Implementation%20in%20C%20-%20Book%20by%20Andrew%20Appel.pdf">
+                            <span class="resource-title">Modern Compiler Implementation in C   Book by Andrew Appel</span>
+                            <span class="resource-meta">PDF · Course document</span>
+                            <span class="resource-open">Open resource</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </section>
+    </main>
+    <dialog class="pdf-viewer" id="pdf-viewer" aria-labelledby="pdf-viewer-title">
+        <header class="pdf-viewer-header">
+            <h2 id="pdf-viewer-title">PDF preview</h2>
+            <div class="pdf-viewer-actions">
+                <a id="pdf-viewer-new-tab" target="_blank" rel="noopener">Open in new tab</a>
+                <button id="pdf-viewer-close" type="button">Close</button>
+            </div>
         </header>
-        <main>
-            <h2>Course materials</h2>
-            <ul>
-                <li><a href="Notes/">Lecture notes</a></li>
-                <li><a href="Labs/">Laboratory programs and practical sheets</a></li>
-                <li><a href="Tutorials/">Tutorials</a></li>
-                <li><a href="PYQs/">Previous-year questions</a></li>
-                <li><a href="Book/">Reference book</a></li>
-                <li><a href="Compiler-Design-Course-Logistics.pdf">Course logistics</a></li>
-                <li><a href="Lecture%20Plan%20-%20NCSC302.pdf">Lecture plan</a></li>
-            </ul>
-        </main>
-    </body>
+        <iframe class="pdf-viewer-frame" title="PDF preview"></iframe>
+    </dialog>
+    <footer class="site-footer">
+        <p>Compiler Design · NCSC302 · IIT (ISM) Dhanbad</p>
+        <a class="back-to-top" href="#top">Back to top</a>
+    </footer>
+</body>
 </html>
